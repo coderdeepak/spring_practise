@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<bean id= "csvOutputGenerator_id" class = "org.spring.ioc.common.CsvOutputGenerator"/>
+	<bean id= "jsonOutputGenerator_id" class = "org.spring.ioc.common.JSONOutputGenerator"/>
+	
+	<bean id= "outputHelper_id" class = "org.spring.ioc.basic.constructorinjection.OutputHelper">
+		<constructor-arg>
+			<ref bean= "jsonOutputGenerator_id"/>
+		</constructor-arg>
+	</bean>
+	
+			
+</beans>	
