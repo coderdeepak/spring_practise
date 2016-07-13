@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	
+	<bean id="customer_id" class="org.spring.ioc.basic.scope.CustomerService"/>
+		
+	<bean id="customer_id1" class="org.spring.ioc.basic.scope.CustomerService"/>
+		
+<!-- 
+	for Spring container "customer_id" and "customer_id1" are 2 different beans; Though there classes are same they are 2 different beans.
+	When u ask for bean "customer_id" from Spring container ; container would create an object of CustomerService and return it.When u ask it twice it doesn't create a new object it returns same object (It is singleton).
+	
+	When u ask for an object for bean "customer_id1"; This time it will create a new object and return; Though it also points to same class for spring it is a different bean.       
+  -->
+  
+  <!-- 
+  	How spring does it internally; on startup Spring creates a ConcurrentHashMap 
+  	
+  	private final Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<String, BeanDefinition>(256);
+  	
+  	where String is bean id and BeanDefination contains bean object and other bean details.  
+   -->
+</beans>	

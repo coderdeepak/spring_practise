@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="customer_id"
+		class="org.spring.ioc.basic.constructorinjection.argument.ambiguity.Customer">
+		<constructor-arg type="java.lang.String">
+			<value>Deepak</value>
+		</constructor-arg>
+		<constructor-arg type="java.lang.String">
+			<value>251</value>
+		</constructor-arg>
+		<constructor-arg type="int">
+			<value>35</value>
+		</constructor-arg>
+	</bean>
+
+</beans>	

@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id = "department-factory" class = "org.spring.ioc.basic.factorymethod.instance.DepartmentFactory"/>
+	
+	
+	<bean id="admin" factory-bean = "department-factory"
+	factory-method="getDepartment">
+	<constructor-arg value= "admin"/>
+	</bean>
+	
+	
+	<bean id="hr" factory-bean = "department-factory" 
+	factory-method="getDepartment">
+	<constructor-arg value= "HR"/>
+	</bean>
+
+
+</beans>	
