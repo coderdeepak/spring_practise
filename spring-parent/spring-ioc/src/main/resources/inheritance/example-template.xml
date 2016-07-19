@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<bean id= "base_customer_india" abstract="true">
+		<property name = "country" value = "India"/>
+	</bean>
+	
+	<bean id= "customer" class = "org.spring.ioc.inheritance.Customer" parent="base_customer_india">
+		<property name = "action" value = "buy"/>
+		<property name = "type" value = "1"/>
+	</bean>
+	
+</beans>	

@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+	<bean id="command" class="org.spring.ioc.basic.methodinjection.Command"
+		scope="prototype" />
+
+
+
+	<bean id="command_manager" class="org.spring.ioc.basic.methodinjection.CommandManager">
+		<lookup-method name="createCommand" bean="command" />
+	</bean>
+
+	<!-- Spring will create a subclass of CommadManager (this is done dynamically 
+		using CGLIB). This dynamically generated subclass will implelement the abstract 
+		method createCommand defined in CommadManager. <bean id="command_manager" 
+		class="org.spring.ioc.basic.methodinjection.CommandManager"> <lookup-method 
+		(dynamically create subclass of CommadManager) name = "createCommand"(implement 
+		or override method createCommand) bean = "command" (to return bean command)/> 
+		</bean> -->
+</beans>	

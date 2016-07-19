@@ -1,0 +1,54 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="test" class="org.spring.ioc.basic.collections.Test" />
+
+	<bean id="customer" class="org.spring.ioc.basic.collections.Customer">
+		<property name="myList">
+			<list>
+				<value>a list element followed by a reference</value>
+				<ref bean="test" />
+				<bean class=" org.spring.ioc.basic.collections.Test ">
+					<property name="x" value="my" />
+					<property name="y" value="Name is" />
+					<property name="z" value="Anthony Gonsalwis" />
+				</bean>
+			</list>
+		</property>
+
+		<property name="mySet">
+			<set>
+				<value>1</value>
+				<ref bean="test" />
+				<bean class=" org.spring.ioc.basic.collections.Test ">
+					<property name="x" value="my" />
+					<property name="y" value="Name is" />
+					<property name="z" value="Anthony Gonsalwis" />
+				</bean>
+			</set>
+		</property>
+
+		<property name="myMap">
+			<map>
+				<entry key="1" value="10" />
+				<entry key="2" value-ref="test" />
+				<entry key="3">
+					<bean class=" org.spring.ioc.basic.collections.Test ">
+						<property name="x" value="my" />
+						<property name="y" value="Name is" />
+						<property name="z" value="Anthony Gonsalwis" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+
+		<property name="myProperties">
+			<props>
+				<prop key="admin">admin@synechron.com</prop>
+				<prop key="support">support@synechron.com</prop>
+			</props>
+		</property>
+	</bean>
+</beans>	

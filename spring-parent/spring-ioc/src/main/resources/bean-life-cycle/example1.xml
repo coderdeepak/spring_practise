@@ -1,0 +1,10 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<bean id= "customerservice_id" class = "org.spring.ioc.beanlifecycle.example1.CustomerService">
+		<property name = "message" value = "Wats up Man"/>
+	</bean>
+	
+</beans>	

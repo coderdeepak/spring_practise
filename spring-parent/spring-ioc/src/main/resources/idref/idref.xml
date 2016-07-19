@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="target_bean_id" class="org.spring.ioc.basic.idref.TargetBean" />
+
+	<bean id="client" class="org.spring.ioc.basic.idref.ClientBean">
+		<property name="targetBean" ref = "target_bean_id"/>
+		<property name="targetBeanName">
+			<idref bean="target_bean_id"/>
+			<!-- The value of property targetBeanName is "target_bean_id"(String);   -->
+		</property> 
+	</bean>
+</beans>	
