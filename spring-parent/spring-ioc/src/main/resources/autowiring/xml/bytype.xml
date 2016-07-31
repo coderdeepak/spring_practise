@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	
+	<bean id= "employee" class = "org.spring.ioc.autowire.bytype.EmployeeBean" autowire = "byType">
+		<property name = "name" value = "Deepak"/>
+	</bean>
+	
+	<bean id= "departmentBean" class = "org.spring.ioc.autowire.common.Department">
+		<property name = "departmentName" value = "HR"/>
+	</bean>
+	
+	<bean id= "departmentBean1" class = "org.spring.ioc.autowire.common.Department">
+		<property name = "departmentName" value = "Admin"/>
+	</bean>
+</beans>	

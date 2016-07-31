@@ -13,5 +13,4 @@
 		<!-- comment below property and verify the result  -->
 		<!-- <property name = "name" value = "Deepak"/> -->
 	</bean>
-	
 </beans>	
