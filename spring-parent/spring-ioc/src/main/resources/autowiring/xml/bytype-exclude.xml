@@ -4,15 +4,18 @@
 	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 	
 	
-	<bean id= "employee" class = "org.spring.ioc.autowire.bytype.EmployeeBean" autowire = "byType">
+	<bean id= "employee" class = "org.spring.ioc.autowire.exclude.EmployeeBean" autowire = "byType">
 		<property name = "name" value = "Deepak"/>
 	</bean>
 	
-	<bean id= "departmentBean" class = "org.spring.ioc.autowire.common.Department">
+	<!-- 
+		Since department bean is declared with autowire-candidate="false" ; it will not be injected in employee bean. 
+	 -->
+	<bean id= "departmentBean" class = "org.spring.ioc.autowire.common.Department" autowire-candidate="false">
 		<property name = "departmentName" value = "HR"/>
 	</bean>
 	
-	<!-- <bean id= "departmentBean1" class = "org.spring.ioc.autowire.common.Department">
+	<bean id= "departmentBean1" class = "org.spring.ioc.autowire.common.Department">
 		<property name = "departmentName" value = "Admin"/>
-	</bean> -->
+	</bean>
 </beans>	

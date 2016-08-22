@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<!-- 
+		Employee is now declared autowired by constructor; you don't need to explicitly write the configuration of injecting the constructor argument.
+		Employee class has a constructor which contains an argument of type department; as you can see we have not explicitly mentioned the injection of constructor argument
+		but since employee is autowired by constructor , spring container will auto detect Department bean and inject it as constructor argument in employee class.     
+	 -->
+	<bean id= "employee" class = "org.spring.ioc.autowire.byconstructor.EmployeeBean" autowire = "constructor">
+		<property name = "name" value = "Deepak"/>
+	</bean>
+	
+	<bean id= "departmentBean" class = "org.spring.ioc.autowire.common.Department">
+		<property name = "departmentName" value = "HR"/>
+	</bean>
+	
+</beans>	

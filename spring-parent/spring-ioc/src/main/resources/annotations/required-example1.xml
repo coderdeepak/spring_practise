@@ -11,6 +11,6 @@
 	<bean id= "customer" class = "org.spring.ioc.annotations.required.Customer">
 		<property name = "age" value = "35"/>
 		<!-- comment below property and verify the result  -->
-		<!-- <property name = "name" value = "Deepak"/> -->
+		<property name = "name" value = "Deepak"/>
 	</bean>
 </beans>	
