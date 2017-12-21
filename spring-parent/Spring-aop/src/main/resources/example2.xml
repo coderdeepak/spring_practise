@@ -1,0 +1,37 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id="simpleServiceBean" class="org.Spring.aop.common.SimpleService">
+		<property name="name" value="Hello" />
+		<property name="id" value="12345" />
+	</bean>
+
+	<bean id="doBeforeMethodBean" class="org.Spring.aop.common.DoBeforeMethod" />
+	<!-- The Pointcut indicates which method should be intercepted; Simple pointcut indicates that method whose name is "sayHello" will be intercepted-->
+	<bean id="simplePointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+		<property name="mappedName" value="sayHello" />
+	</bean>
+
+	<!-- Advisor groups the Advice and the Pointcut into a single unit, and passes it to a proxy factory object -->
+	<!-- simpleAdvisor is a advisor which groups simplepointcut and advise doBeforeMethodBean -->
+	<bean id="simpleAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="pointcut" ref="simplePointcut" />
+		<property name="advice" ref="doBeforeMethodBean" />
+	</bean>
+
+	<bean id="simpleServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="simpleServiceBean" />
+		<property name="interceptorNames">
+			<list>
+				<!-- <value>doBeforeMethodBean</value> -->
+				<value>simpleAdvisor</value>
+				<!-- As you can see in previous example we passed advise(boBeforeMethodBean), in this example we are passing advisor simpleAdvisor -->
+				<!-- As a result beBeforeMethod bean advise will be applied before only joinpoint (which is sayHello method) not all the methods of target object -->
+			</list>
+		</property>
+	</bean>
+</beans>	

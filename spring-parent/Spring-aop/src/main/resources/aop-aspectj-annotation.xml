@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- Enable AspectJ style of Spring AOP -->
+	<aop:aspectj-autoproxy />
+
+	<!-- Configure Employee Bean and initialize it -->
+	<bean name="employee" class="org.Spring.aop.aspectj.example4.Employee">
+		<property name="name" value="Deepak"></property>
+	</bean>
+
+	<!-- Configure EmployeeService bean -->
+	<bean name="employeeService" class="org.Spring.aop.aspectj.example4.EmployeeService">
+		<property name="employee" ref="employee"></property>
+	</bean>
+
+	<!-- Configure Aspect Beans, without this Aspects advices wont execute -->
+	<bean name="employeeAspect" class="org.Spring.aop.aspectj.example4.EmployeeAspect" />
+	<!-- <bean name="employeeAspectPointcut" class="org.Spring.aop.aspectj.example4.EmployeeAspectPointcut" /> -->
+
+</beans>	
